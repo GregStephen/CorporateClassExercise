@@ -11,7 +11,7 @@ namespace CorporateClassExercise
             public string Name { get; }
             public DateTime CreatedOn { get; }
 
-            List<Employee> _currentEmployees = new List<Employee>();
+            public List<Employee> _currentEmployees = new List<Employee>();
 
             public void AddEmployee(Employee employee)
             {
@@ -27,7 +27,7 @@ namespace CorporateClassExercise
             {
                 foreach (Employee employee in _currentEmployees )
                 {
-                    Console.WriteLine($"{employee.Name} is a {employee.JobTitle} at {Name}");
+                    Console.WriteLine($"{employee.FirstName} is a {employee.JobTitle} at {Name}");
                 }
             }
             public Company(string name)
@@ -39,13 +39,22 @@ namespace CorporateClassExercise
         static void Main(string[] args)
         {
             var company = new Company("PoopScoop Incorporated");
-            var employee1 = new Employee("John", "Data Analyst");
-            var employee2 = new Employee("Janice", "Boss of All");
-            var employee3 = new Employee("Jeff", "Coffee Bitch");
+            var employee1 = new Employee("John", "Smith", "Data Analyst");
+            var employee2 = new Employee("Janice", "Griffin", "Boss of All");
+            var employee3 = new Employee("Jeff", "Tweedy", "Coffee Bitch");
             company.AddEmployee(employee1);
             company.AddEmployee(employee2);
             company.AddEmployee(employee3);
             company.ListEmployees();
+            employee1.eat();
+            employee1.eat();
+            employee1.eat();
+            employee1.eat();
+            employee1.eat();
+            employee1.eat(company._currentEmployees);
+            employee2.eat("Chicken");
+            employee3.eat("Steak", company._currentEmployees);
+
 
         }
     }
